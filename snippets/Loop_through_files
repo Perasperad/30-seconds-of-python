@@ -1,0 +1,30 @@
+---
+title: Loop through files in a directory
+tags: utility
+expertise: intermediate
+firstSeen: 
+---
+
+One by one it reads all the files of a type contained in the folder where the script is being launched.
+This can be used for any task you want to do with files, for example you may want to read their content and print it inside a new text file.
+
+```py
+from pathlib import Path
+import os
+
+source = os.getcwd() # folder path
+
+def read_files():
+      for path in Path(source).glob("*.jpg"):
+        with path.open("rb") as file:
+          ...
+          print(path)
+          ...
+```
+
+```py
+read_files() 
+# 'C:/whatever/file1.jpg'
+# 'C:/whatever/file2.jpg'
+etc. etc.
+```
